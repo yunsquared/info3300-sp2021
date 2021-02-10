@@ -53,19 +53,42 @@
       
       // Console.log is our friend
       console.log('Hello World');
+      
 
       // Let's explore some Javascript types!
       console.log("--- Checking out some types ---")
-      
-      
-      
-      
-      
+      console.log(typeof(1));
+
+      console.log( typeof( new Object() ));
+
+      console.log( new Object() ); //objects are also dictionaries in js 
+
+      console.log( typeof((true)));5
+
+      console.log( typeof( console.log )); //functions are still objects, weird 
+
+      console.log( typeof( list)); // no notion of array in js, type is still object but there is an array (and has extra property of length)
+      //everything except for numbers and strings are objects 
+      //there is a notion of a function type 
+      //booleans also work 
+    
+      let dict = {'a':1, 'b':2,'c':3}; //shows all dictionaries are objects 
+
+      console.log(dict);
+      console.log(typeof(dict));
+
+      list['newKey']="hello";
+      console.log(list['newKey']);
+
+      //every obj can also function as dictionary?
       
       // Learn a bit more about Objects
       // console.log("--- Testing [] and {} ---")
 
-      
+      //two different types of "nothingness", there's null and there's undefined 
+
+      console.log(typeof(null)); //null is a type but still returns object 
+      console.log(typeof(undefined)); //more frequently occuring 
       
       
 
@@ -79,29 +102,67 @@
       //   console.log( item['test'] ); 
       // } 
       
+      console.log(3==3);
+
+    
       
       // Types can get a bit unexpected in JS
       // console.log("--- Now exploring type coercion ---")
       
+      //when comparing disimilar types, will turn one into the other type to compare
+      console.log(0=='0'); //will return true 
+
+      console.log("1"+2); //produce 12 
       
+      console.log(4+true); //5 bc true turns into 1 
+
+      console.log(true+false); //1 bc saw the plus sign, coerced both into numbers 
+
+      console.log("true"+false); //truefalse 
+
+      console.log([1,2,3]+4); //array was converted into string and added to 4, no exceptions ever thrown 
+
+      let color = "red";
+
+      document.getElementById("rectangle").setAttribute("fill", color)
       
       // Why does this matter?
       
-      
+      //can creep forward and cause silent errors that you don't expect 
       
       
       // Comparison weirdness
       // console.log("--- Now trying some comparisons ---")
-      
-      
+      //comparisons are not free of type error 
+      console.log((true+1) =="2");
+      console.log([]==0); //empty list also coerced into empty 0 which returns true 
+      console.log([1]==true); //also true bc one element array coerces to 1 and so does true 
+
+      console.log([[[[[]]]]]==[]); //no coercision happens bc it is same type, thus returns false 
+
+      //explicit comparison is made with three ===, instructs JS to not do coercsion sooo
+      //ALWAYS USE THREE EQUAL SIGNS 
+
+      // null, undefined, NaN
+
+      console.log(null===0); //not equal 
+      console.log(null===undefined); //now no longer same thing 
+      console.log(NaN===NaN);
       
       
 
       // Shortcircuiting of logical statements
       // console.log("--- Shortcircuiting ---");
 
+      console.log("shortcircuit")
+      
+      true || console.log("logged-or") || false; //if JS shorts, will see true and stop, if does not, will keep running 
 
+      if (thing !== undefined && thing.property === 'somthing'); //can also short circuit logical statement 
 
+      //undefined returns itself for type of, but type of (null) returns object 
+
+      //this matters bc type coercision can creep in with unexpected effects
 
     </script>
 
